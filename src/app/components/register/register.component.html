@@ -1,0 +1,60 @@
+<div>
+    <div class="container cont_st">
+        <div class="form_st col-md-7">
+            <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input class="form-control mt-1" type="text" id="name" name="name" minlength="4" maxlength="50"
+                        placeholder="Ingrese el nombre" #name="ngModel" [(ngModel)]="user.firstName"
+                        [ngClass]="{'is-valid': !name.invalid, 'is-invalid':name.invalid && (name.dirty || name.touched)}"
+                        required>
+                    <div class="invalid-feedback" *ngIf="name.invalid && (name.dirty || name.touched)">
+                        <div *ngIf="name.errors?.minlength">
+                            Introduzca un nombre con 4 caracteres mínimo
+                        </div>
+                        <div *ngIf="name.errors?.maxlength">
+                            Introduzca un nombre con 50 caracteres máximo
+                        </div>
+                        <div *ngIf="name.errors?.required">
+                            El nombre es requerido
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="lastname">Apellido</label>
+                    <input class="form-control mt-1" type="lastname" id="lastname" name="lastname" minlength="4"
+                        maxlength="50" placeholder="Ingrese el apellido" #lastname="ngModel" [(ngModel)]="user.lastName"
+                        [ngClass]="{'is-valid': !lastname.invalid, 'is-invalid':lastname.invalid && (lastname.dirty || lastname.touched)}"
+                        required>
+                    <div class="invalid-feedback" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                        <div *ngIf="lastname.errors?.minlength">
+                            Introduzca un apellido con 4 caracteres mínimo
+                        </div>
+                        <div *ngIf="name.errors?.maxlength">
+                            Introduzca un apellido con 50 caracteres máximo
+                        </div>
+                        <div *ngIf="lastname.errors?.required">
+                            El apellido es requerido
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group mt-2">
+                    <label for="role">Rol</label>
+                    <select class="form-select" id="role" name="role" [(ngModel)]="user.role">
+                        <option value="true">Profesor</option>
+                        <option value="false">Estudiante</option>
+                    </select>
+                </div>
+
+                <div class="form-group mt-5 btn_submit_st animate__animated animate__fadeInUp">
+                    <div *ngIf="newUser; then createButton else updateButton"></div>
+                    <ng-template #createButton><button type="submit" class="btn btn-success btn_st" [disabled]="!form.valid">Crear</button></ng-template>
+                    <ng-template #updateButton><button type="submit" class="btn btn-success btn_st" [disabled]="!form.valid">Actualizar</button></ng-template>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

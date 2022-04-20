@@ -1,0 +1,12 @@
+.nav_st {
+    background-color: dimgrey;
+}
+
+.buttons {
+    display: flex;
+    align-items: center;
+}
+
+button {
+    color: aliceblue;
+}

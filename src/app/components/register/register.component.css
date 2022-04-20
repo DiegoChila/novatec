@@ -1,0 +1,32 @@
+.cont_st {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+}
+
+label {
+    color: black;
+}
+
+button:disabled {
+    background-color: tan;
+    border-color: tan;
+}
+
+button:enabled {
+    background-color: green;
+    border-color: green;
+}
+
+.form_st {
+    margin-top: 50px;
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 60px 50px;
+    border: 2px solid transparent;
+    border-radius: 10px;
+}
+
+.btn_st {
+    display: inline-block;
+}

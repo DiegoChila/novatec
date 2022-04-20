@@ -1,0 +1,39 @@
+<div class="container">
+    <br>
+    <div class="center">
+        <button class="btn btn-success" routerLink="/register">Agregar nuevo usuario</button>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="p-md-4">
+                <div class="title">Estudiantes</div>
+                <br>
+                <hr>
+                <div *ngFor="let student of students">
+                    <div class="row">
+                        <div class="col-5">{{student.firstName}}</div>
+                        <div class="col-5">{{student.lastName}}</div>
+                        <div class="col-2"><button class="btn btn-info" [routerLink]="['/detail', student.id]"><i class="fa-solid fa-pen-to-square"></i></button></div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="p-md-4">
+                <div class="title">Profesores</div>
+                <br>
+                <hr>
+                <div *ngFor="let teacher of teachers">
+                    <div class="row">
+                        <div class="col-5">{{teacher.firstName}}</div>
+                        <div class="col-5">{{teacher.lastName}}</div>
+                        <div class="col-2"><button class="btn btn-info" [routerLink]="['/detail', teacher.id]"><i class="fa-solid fa-pen-to-square"></i></button></div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
